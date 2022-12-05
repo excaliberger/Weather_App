@@ -1,63 +1,32 @@
-import WishList from "./wishlist.js"
-import Car from "./car.js";
+import Weather from "./weather-class.js";
 
-let form = document.getElementById("submitForm");
-let makeInput = document.getElementById("makeInput");
-let modelInput = document.getElementById("modelInput");
-let yearInput = document.getElementById("yearInput");
-let makeDisplay = document.getElementById("car-make");
-let modelDisplay = document.getElementById("car-model");
-let yearDisplay = document.getElementById("car-year");
-let removeBtn = document.querySelector(".removeBtn");
-let wishlistUl = document.querySelector("#wishListContainer > ul");
 
-let newWishlist = new WishList([], 0);
 
-form.addEventListener('submit', addCar);
-removeBtn.onclick = removeCar;
+const apiKey = "e13002eddd35b99554bbc7eb18a634aa";
+const cityListLimit = 5;
 
-function updateDOMList() {
-    wishlistUl.innerHTML = "";
-    newWishlist.list.forEach((car) =>{
-        const li = document.createElement("li");
-        li.textContent = `${car.make} ${car.model}`;
-        wishlistUl.appendChild(li);
-        li.onclick = () => showCarDetails(car);
-    })  
+const citySearchBar = document.getElementById("cityInput");
+const citySearchButton = document.getElementById("citySearchButton");
+const sevenDayForecastContainer = document.getElementById("sevenDayForecastContainer");
+const temperatureDisplay = document.getElementById("temperatureDisplay");
+const chanceOfRain = document.getElementById("chanceOfRain")
+const cityListDisplayUl = document.createElement("ul");
+
+citySearchButton.onclick = () => {
+    temperatureDisplay.textContent = ""
+    chanceOfRain.textContent = ""
+    fetch(
+        `http://api.openweathermap.org/geo/1.0/direct?q==${citySearchBar.value}&limit=${cityListLimit}&appid=${apiKey}`,
+        { mode: "cors" }
+    )
+    .then((response) => response.json())
+    .then((res) => {
+        console.log("res test");
+        temperatureDisplay.textContent = weather.temperature;
+        chanceOfRain.textContent = `${weather.chanceOfRain} chance of rain today`;
+    })
+    .catch ((err) => {
+        console.error(err);
+        feedbackP.textContent = err.message;
+    })
 }
-
-function showCarDetails(car) {
-    makeDisplay.textContent = car.make;
-    modelDisplay.textContent = car.model;
-    yearDisplay.textContent = car.year;
-    removeBtn.disabled = false;
-    removeBtn.setAttribute("data-carId", car.id);
-}
-
-
-function addCar (click) {
-    click.preventDefault();
-    let make = makeInput.value;
-    let model = modelInput.value;
-    let year = yearInput.value;
-    
-    newWishlist.add(make, model, year);
-
-    updateDOMList();
-
-    makeInput.value = null;
-    modelInput.value = null;
-    yearInput.value = null;
-}
-
-function removeCar() {
-    let carId = Number(removeBtn.getAttribute("data-carId"));
-    console.log(removeBtn.getAttribute("data-carId"));
-    newWishlist.remove(carId);
-    updateDOMList();
-  
-    makeDisplay.textContent = "";
-    modelDisplay.textContent = "";
-    yearDisplay.textContent = "";
-    removeBtn.disabled = true;
-  }
