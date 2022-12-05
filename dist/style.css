@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap');
+
+.containerContainer {
+    display: flex;
+    margin-bottom: 20px;
+    font-family: 'Rubik', sans-serif;
+}
+
+#temperature-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2em;
+    background-color: red;
+    width: 300px;
+    /* max-height: 300px; */
+}
+
+#savedCitiesContainer {
+    display: flex;
+    justify-content: left;
+    flex-grow: 1;
+    padding: 2em;
+    background-color: blue;
+    width: 700px;
+    max-height: 100%;
+}
+
+#humidityContainer {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+    margin: 0 auto;
+    padding: 2em;
+    background-color: pink;
+    min-height: 80%;
+}
+
+#windContainer {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    text-align: center;
+    background-color: brown;
+    padding: 2em;
+    min-height: 80%;
+    max-height: 200px;
+}
+
+
+#temperatureDisplay {
+    font-weight: 600;
+    font-size: 7em;
+}
+
+#chanceOfRain {
+    font-weight: 500;
+}
+
+.containerTitle {
+    font-size: 1em;
+}
+
+.secondaryInfo {
+    font-size: 3em;
+}
+
+.unitsOfMeasure {
+    font-size: 15px;
+}

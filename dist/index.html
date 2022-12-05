@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>WeatherVein</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <main>
+      <section>
+        <form>
+          <div>
+            <label for="cityInput">City:</label>
+            <input type="text" id="cityInput" />
+            <button id="citySearchButton" class="btn btn-primary">Submit</button>
+          </div>
+         </form>
+      </section>
+      <hr />
+      <section>
+        <div class="containerContainer">
+          <div id="mainTemperatureContainer">
+            <div id="temperature-card">
+              <div id="containsBothTempearatureAndChanceOfRainInfo">
+                <h1 id="temperatureDisplay">45<span class="unitsOfMeasure"><sup>o</sup>F</span></h1>
+                <p id="chanceOfRain">30% chance of rain</p>
+              </div>
+            </div>
+          </div>
+          <div id="savedCitiesContainer">
+            <h1 class="containerTitle">Saved Cities</h1>
+            <ul id="savedCities"></ul>
+          </div>
+        </div>
+        <div class="containerContainer">
+          <div id="containsHumidityContainer">
+            <div id="humidityContainer">
+              <h3 class="containerTitle">Humidity</h3>
+              <h1 id="humidity" class="secondaryInfo">35%</h1>
+            </div>
+          </div>
+          <div id="containsWindInfo">
+            <div id="windContainer">
+              <h3 class="containerTitle">Wind</h3>
+              <h1 id="windSpeed" class="secondaryInfo">3.87<span class="unitsOfMeasure">mph</span></h1>
+              <p id="windDirection">SSW</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="main.js"></script>
+  </body>
+</html>
