@@ -69,7 +69,6 @@ function giveWeatherOptions(cityArray) {
                 }
                 
                 let newWeatherObject = new Weather (myWeatherAppArgs); 
-                console.log(newWeatherObject.id);
 
                 clickToPopulate(newWeatherObject);
 
@@ -124,28 +123,21 @@ saveButton.addEventListener("click", (click) => {
     const removeButton = document.createElement("button");
     individualSavedCity.appendChild(removeButton);
     removeButton.textContent = "Remove";
-    console.log("starto");
-    let removeThisCity = activeCity;
-    let removeThisId = activeCity.id;
-    console.log("removeThisCity");
-    console.log(removeThisCity);
-    console.log("removeThisId");
-    console.log("removeThisId")
     removeButton.addEventListener("click", (click) => {
-        removeCity(activeCity);
+        console.log(click);
+        removeCity(removeThisId);
         cityListDisplayUl.removeChild(individualSavedCity);
-        console.log("##########################")
     });
     individualSavedCity.addEventListener("click", (click) => {
         clickToPopulate(activeCity);
     })
 });
 
-function removeCity(cityToRemove){
-    const removeFromArrayOnClick = savedCityArray.filter((city) => {
-        return city !== cityToRemove;
+function removeCity(id){
+    const removeFromArrayOnClick = savedCityArray.filter((cityToRemove) => {
+        console.log(id);
+        console.log(cityToRemove);
+        return id !== cityToRemove;
     })
     savedCityArray = removeFromArrayOnClick;
-    console.log("savedCityArray");
-    console.log(savedCityArray);
 }
