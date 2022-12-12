@@ -18,8 +18,12 @@
             <label for="cityInput">City:</label>
             <input type="text" id="cityInput" />
             <button id="citySearchButton" class="btn btn-primary">Submit</button>
+            <button id="saveButton" class="btn btn-primary">Save</button>
           </div>
          </form>
+            <div id="searchOptionsContainer" class="containerContainer">
+
+            </div>
       </section>
       <hr />
       <section>
@@ -27,8 +31,9 @@
           <div id="mainTemperatureContainer">
             <div id="temperature-card">
               <div id="containsBothTempearatureAndChanceOfRainInfo">
-                <h1 id="temperatureDisplay">45<span class="unitsOfMeasure"><sup>o</sup>F</span></h1>
-                <p id="chanceOfRain">30% chance of rain</p>
+                <h3 id="cityName"></h3>
+                <h1 id="temperatureDisplay">45</h1>
+                <p id="cloudCoverage">30% chance of rain</p>
               </div>
             </div>
           </div>
@@ -41,16 +46,27 @@
           <div id="containsHumidityContainer">
             <div id="humidityContainer">
               <h3 class="containerTitle">Humidity</h3>
-              <h1 id="humidity" class="secondaryInfo">35%</h1>
+              <h1 id="humidity" class="secondaryInfo"></h1>
             </div>
           </div>
-          <div id="containsWindInfo">
+          <div id="containsWindContainer">
             <div id="windContainer">
               <h3 class="containerTitle">Wind</h3>
-              <h1 id="windSpeed" class="secondaryInfo">3.87<span class="unitsOfMeasure">mph</span></h1>
-              <p id="windDirection">SSW</p>
+              <h1 id="windSpeed" class = "secondaryInfo"></h1>
+              <!-- <p id="windDirection">SSW</p> -->
             </div>
           </div>
+          <div id = "containsSunriseContainer">
+            <div id = "sunriseContainer">
+              <h3 class = "containerTitle">Sunrise</h3>
+              <h1 id = "sunrise" class = "secondaryInfo"></h1>
+            </div>
+          </div>
+          <div id = "containsSunsetContainer">
+            <div id = "sunsetContainer">
+              <h3 class = "containerTitle">Sunset</h3>
+              <h1 id = "sunset" class = "secondaryInfo"></h1>
+            </div>
         </div>
       </section>
     </main>

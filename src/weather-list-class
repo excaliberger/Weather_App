@@ -1,0 +1,57 @@
+import Weather from "./weather-class.js";
+import clickToPopulate from "./index.js";
+
+
+class SavedCitiesList {
+    constructor () {
+        this.cities = []
+    }
+
+    addCity(city) { 
+
+        const savedCityList = document.getElementById("savedCitiesContainer")
+        const cityListDisplayUl = document.createElement("ul");
+        const removeButton = document.createElement("button");
+        let individualSavedCity = document.createElement("li");
+        let activeCity; 
+
+        activeCity = city;
+
+        this.cities.push(activeCity);
+
+        savedCityList.appendChild(cityListDisplayUl);
+        cityListDisplayUl.appendChild(individualSavedCity);
+
+        individualSavedCity.textContent = `${activeCity.city}, ${activeCity.state}`;
+        individualSavedCity.addEventListener("click", (click) => {
+            clickToPopulate(activeCity);
+        })
+        
+        individualSavedCity.appendChild(removeButton);
+        removeButton.textContent = "Remove";
+        removeButton.addEventListener("click", (click) => {
+            this.newWeatherObject.removeCity();
+            cityListDisplayUl.removeChild(individualSavedCity);
+        });
+
+        console.log(activeCity);
+        console.log(this.cities);
+    }
+
+    removeCity(cityToRemove){
+        console.log(this.cities)
+        const removeFromArrayOnClick = this.cities.filter((city) => {
+            return city !== cityToRemove;
+        })
+        this.cities = removeFromArrayOnClick;
+        console.log("savedCityArray");
+        console.log(savedCityArray);
+    }
+
+
+
+}
+
+
+
+export default SavedCitiesList;
