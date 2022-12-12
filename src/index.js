@@ -77,7 +77,6 @@ function giveWeatherOptions(cityArray) {
 } 
 
 function clickToPopulate(weatherObject) {
-    let activeCity;
     cityName.innerHTML = `${weatherObject.city}, ${weatherObject.state}`;
     temperatureDisplay.innerHTML = `${weatherObject.temperatureInFarenheit()} <sup>o</sup>F`;
     cloudCoverage.innerHTML = `${weatherObject.cloudCoverage}`;
