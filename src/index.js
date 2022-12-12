@@ -1,5 +1,5 @@
 import Weather from "./weather-class.js";
-import SavedCitiesList from "./weather-list-class";
+
 
 
 const apiKey = "e13002eddd35b99554bbc7eb18a634aa";
@@ -14,8 +14,12 @@ const humidity = document.getElementById("humidity");
 const windSpeed = document.getElementById("windSpeed");
 const sunrise = document.getElementById("sunrise");
 const sunset = document.getElementById("sunset");
+const savedCityList = document.getElementById("savedCitiesContainer")
+const cityListDisplayUl = document.createElement("ul");
 const saveButton = document.getElementById("saveButton");
-let listOfSavedCities = new SavedCitiesList([]);
+
+let savedCityArray = [];
+let activeCity; 
 let cityId = 0;
 
 citySearchButton.onclick = (click) => {
@@ -52,7 +56,6 @@ function giveWeatherOptions(cityArray) {
                 { mode: "cors" }
             ) .then ((response) => response.json())
             .then((res) => {
-
                 let myWeatherAppArgs = {
                     city: city.name,
                     state: city.state,
@@ -65,7 +68,9 @@ function giveWeatherOptions(cityArray) {
                     id: cityId++,
                 }
                 
-                let newWeatherObject = new Weather (myWeatherAppArgs);
+                let newWeatherObject = new Weather (myWeatherAppArgs); 
+                console.log(newWeatherObject.id);
+
                 clickToPopulate(newWeatherObject);
 
             })
@@ -111,8 +116,36 @@ function clickToPopulate(weatherObject) {
 
 saveButton.addEventListener("click", (click) => {
     click.preventDefault();
-    listOfSavedCities.addCity();
+    savedCityArray.push(activeCity);
+    savedCityList.appendChild(cityListDisplayUl);
+    let individualSavedCity = document.createElement("li");
+    cityListDisplayUl.appendChild(individualSavedCity);
+    individualSavedCity.textContent = `${activeCity.city}, ${activeCity.state}`;
+    const removeButton = document.createElement("button");
+    individualSavedCity.appendChild(removeButton);
+    removeButton.textContent = "Remove";
+    console.log("starto");
+    let removeThisCity = activeCity;
+    let removeThisId = activeCity.id;
+    console.log("removeThisCity");
+    console.log(removeThisCity);
+    console.log("removeThisId");
+    console.log("removeThisId")
+    removeButton.addEventListener("click", (click) => {
+        removeCity(activeCity);
+        cityListDisplayUl.removeChild(individualSavedCity);
+        console.log("##########################")
+    });
+    individualSavedCity.addEventListener("click", (click) => {
+        clickToPopulate(activeCity);
+    })
 });
 
-
-export default clickToPopulate();
+function removeCity(cityToRemove){
+    const removeFromArrayOnClick = savedCityArray.filter((city) => {
+        return city !== cityToRemove;
+    })
+    savedCityArray = removeFromArrayOnClick;
+    console.log("savedCityArray");
+    console.log(savedCityArray);
+}

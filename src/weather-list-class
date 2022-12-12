@@ -2,13 +2,13 @@ import Weather from "./weather-class.js";
 import clickToPopulate from "./index.js";
 
 
-class SavedCitiesList {
+class SavedCitiesList extends Weather (city, state, temperature, cloudCoverage, humidity, wind, sunrise, sunset, id, []) {
     constructor () {
         this.cities = []
     }
 
-    addCity(city) { 
-
+    addCity(city) {
+        console.log(city);
         const savedCityList = document.getElementById("savedCitiesContainer")
         const cityListDisplayUl = document.createElement("ul");
         const removeButton = document.createElement("button");
