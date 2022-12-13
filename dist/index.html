@@ -15,59 +15,66 @@
       <section>
         <form>
           <div>
-            <label for="cityInput">City:</label>
-            <input type="text" id="cityInput" />
-            <button id="citySearchButton" class="btn btn-primary">Submit</button>
-            <button id="saveButton" class="btn btn-primary">Save</button>
+            <div id="formContainer">
+              <input type="text" id="cityInput" placeholder="City" />
+              <button id="citySearchButton" class="btn">Submit</button>
+              <button id="saveButton" class="btn">Save</button>
+            </div>  
           </div>
          </form>
             <div id="searchOptionsContainer" class="containerContainer">
-
             </div>
       </section>
-      <hr />
       <section>
         <div class="containerContainer">
           <div id="mainTemperatureContainer">
             <div id="temperature-card">
               <div id="containsBothTempearatureAndChanceOfRainInfo">
                 <h3 id="cityName"></h3>
-                <h1 id="temperatureDisplay">45</h1>
-                <p id="cloudCoverage">30% chance of rain</p>
+                <h1 id="temperatureDisplay"></h1>
+                <p id="cloudCoverage"></p>
+                  <div class="unitOfTemp">  
+                    <span class="letter">F</span><label class="switch">
+                    <input type="checkbox" id="farenheitToCelsius">
+                    <span class="slider round"></span>
+                    </label><span class="letter">C</span>
+                  </div>
               </div>
             </div>
           </div>
           <div id="savedCitiesContainer">
-            <h1 class="containerTitle">Saved Cities</h1>
-            <ul id="savedCities"></ul>
+            <div id="containerTitleContainer">
+              <h1 class="containerTitle">Saved Cities</h1>
+            </div>
+            <ul id="savedCities"></ul>            
           </div>
         </div>
         <div class="containerContainer">
-          <div id="containsHumidityContainer">
-            <div id="humidityContainer">
+          <div id="containsHumidityContainer" class="containsHumidityWindSunriseSunsetContainingContainers">
+            <div id="humidityContainer" class="containsHumidityWindSunriseSunsetContainers">
               <h3 class="containerTitle">Humidity</h3>
-              <h1 id="humidity" class="secondaryInfo"></h1>
+              <h1 id="humidity" class="secondaryInfoDisplay"></h1>
             </div>
           </div>
-          <div id="containsWindContainer">
-            <div id="windContainer">
+          <div id="containsWindContainer" class="containsHumidityWindSunriseSunsetContainingContainers">
+            <div id="windContainer" class="containsHumidityWindSunriseSunsetContainers">
               <h3 class="containerTitle">Wind</h3>
-              <h1 id="windSpeed" class = "secondaryInfo"></h1>
+              <h1 id="windSpeed" class = "secondaryInfoDisplay"></h1>
               <!-- <p id="windDirection">SSW</p> -->
             </div>
           </div>
-          <div id = "containsSunriseContainer">
-            <div id = "sunriseContainer">
+          <div id = "containsSunriseContainer" class="containsHumidityWindSunriseSunsetContainingContainers">
+            <div id = "sunriseContainer" class="containsHumidityWindSunriseSunsetContainers">
               <h3 class = "containerTitle">Sunrise</h3>
-              <h1 id = "sunrise" class = "secondaryInfo"></h1>
+              <h1 id = "sunrise" class = "secondaryInfoDisplay"></h1>
             </div>
           </div>
-          <div id = "containsSunsetContainer">
-            <div id = "sunsetContainer">
+          <div id = "containsSunsetContainer" class="containsHumidityWindSunriseSunsetContainingContainers">
+            <div id = "sunsetContainer" class="containsHumidityWindSunriseSunsetContainers">
               <h3 class = "containerTitle">Sunset</h3>
-              <h1 id = "sunset" class = "secondaryInfo"></h1>
+              <h1 id = "sunset" class = "secondaryInfoDisplay"></h1>
             </div>
-        </div>
+          </div>
       </section>
     </main>
     <script src="main.js"></script>

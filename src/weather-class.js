@@ -2,6 +2,7 @@ class Weather {
     constructor (weatherAppArgs) {
         this.city = weatherAppArgs.city,
         this.state = weatherAppArgs.state,
+        this.country = weatherAppArgs.country,
         this.temperature = weatherAppArgs.temperature,
         this.cloudCoverage = weatherAppArgs.cloudCoverage,
         this.humidity = weatherAppArgs.humidity,
