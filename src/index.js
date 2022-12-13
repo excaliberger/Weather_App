@@ -123,10 +123,10 @@ saveButton.addEventListener("click", (click) => {
     const removeButton = document.createElement("button");
     individualSavedCity.appendChild(removeButton);
     removeButton.textContent = "Remove";
+    removeButton.dataset.id = activeCity.id;
     removeButton.addEventListener("click", (click) => {
-        console.log(click);
-        removeCity(removeThisId);
-        cityListDisplayUl.removeChild(individualSavedCity);
+        removeCity(click.target.dataset.id);
+        // cityListDisplayUl.removeChild(individualSavedCity);
     });
     individualSavedCity.addEventListener("click", (click) => {
         clickToPopulate(activeCity);
@@ -134,10 +134,15 @@ saveButton.addEventListener("click", (click) => {
 });
 
 function removeCity(id){
-    const removeFromArrayOnClick = savedCityArray.filter((cityToRemove) => {
-        console.log(id);
-        console.log(cityToRemove);
-        return id !== cityToRemove;
+        // console.log(id);
+        // console.log(savedCityArray);
+    const removeFromArrayOnClick = savedCityArray.filter((city) => {
+        // console.log(id);
+        // console.log(city);
+        // console.log(id != city.id)
+        return id !== city.id;
     })
+    console.log(removeFromArrayOnClick);
     savedCityArray = removeFromArrayOnClick;
+    console.log(savedCityArray);
 }
