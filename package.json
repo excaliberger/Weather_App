@@ -1,9 +1,12 @@
 {
   "name": "es6_modules",
   "version": "1.0.0",
+  "homepage": "https://excaliberger.github.io/Weather_App",
   "description": "Our users should be able to come to our web app to add or remove cars that they want on their Wish List.",
   "main": "index.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack"
   },
@@ -17,7 +20,6 @@
   "bugs": {
     "url": "https://github.com/excaliberger/Weather_App/issues"
   },
-  "homepage": "https://github.com/excaliberger/Weather_App#readme",
   "devDependencies": {
     "webpack": "^5.75.0",
     "webpack-cli": "^4.10.0"
