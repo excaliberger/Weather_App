@@ -21,7 +21,7 @@
     "url": "https://github.com/excaliberger/Weather_App/issues"
   },
   "devDependencies": {
-    "homepage": "https://github.com/excaliberger/Weather_App",
+    "homepage": "https://github.com/excaliberger/Weather_App.git",
     "webpack": "^5.75.0",
     "webpack-cli": "^4.10.0"
   }
