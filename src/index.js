@@ -29,7 +29,7 @@ citySearchButton.onclick = (click) => {
     cloudCoverage.textContent = ""
 
     fetch(
-        `http://api.openweathermap.org/geo/1.0/direct?q==${citySearchBar.value}&limit=${cityListLimit}&appid=${apiKey}`,
+        `https://api.openweathermap.org/geo/1.0/direct?q==${citySearchBar.value}&limit=${cityListLimit}&appid=${apiKey}`,
         { mode: "cors" }
     )
     .then((response) => response.json())
