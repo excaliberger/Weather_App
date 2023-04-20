@@ -83,7 +83,6 @@ function giveWeatherOptions(cityArray) {
 } 
 
 function clickToPopulate(weatherObject) {
-    console.log(weatherObject.country);
     cityName.innerHTML = weatherObject.state === undefined ? `${weatherObject.city}, ${weatherObject.country}` : `${weatherObject.city}, ${weatherObject.state}`;
     const farenheitOrCelsius = () => {
         if (unitOfTemperatureMeasure.checked === true) {
@@ -167,11 +166,9 @@ saveButton.addEventListener("click", (click) => {
 });
 
 function removeCity(id){
-    console.log(savedCityArray);
     const removeFromArrayOnClick = savedCityArray.filter((city) => {
         return id != city.id;
     })
     savedCityArray = removeFromArrayOnClick;
-    console.log(savedCityArray);
 }
 
